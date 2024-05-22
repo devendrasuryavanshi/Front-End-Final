@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Font and Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="stylesheet" href="./public/CSS/navbar.css">
+    <link rel="stylesheet" href="./public/CSS/styles.css">
+</head>
+<body class="transition-colors duration-300 overflow-hidden">
+    <nav class="flex items-center justify-between gap-8 h-12 w-full min-w-full text-md font-semibold fixed">
+        <div class="nav-left flex items-center justify-evenly pl-3 gap-6 ">
+            <a href="/" class="fa-brands fa-linkedin text-3xl text-purple-600"></a>
+            <a href="./views/networks.html" class="myNetwork text-white text-nowrap">My Network</a>
+            <a href="./views/networks.html" class="fa-regular text-white  fa-heart text-xl hidden"></a>
+            <a onclick="showMenuPanel()" class="fa-solid fa-ellipsis-vertical cursor-pointer text-white  text-2xl"></a>
+        </div>
+        <div class="nav-center flex items-center justify-between w-96">
+            <form class="flex items-center min-w-sm w-full mx-auto">   
+                <label for="simple-search" class="sr-only">Search</label>
+                <div class="relative w-full">
+                    <input type="text" id="simple-search" class=" border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-fuchsia-500 block w-full p-2.5 bg-transparent" placeholder="Search" required />
+                </div>
+                <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-gray-700 rounded-lg border border-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-fuchsia-300 ">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                    <span class="sr-only">Search</span>
+                </button>
+            </form>
+
+        </div>
+        <div class="nav-right flex items-center justify-evenly pr-3 gap-6">
+            <a href="./views/jobs.html" class="material-symbols-outlined text-white text-2xl">work</a>
+            <a href="./views/notification.html" class="fa-regular fa-bell text-white text-2xl"></a>
+            <a href="/" class="premium flex text-white items-center justify-evenly gap-2 bg-gray-900 rounded-lg px-1">
+                <span class="material-symbols-outlined text-2xl">workspace_premium</span>
+                <p class="text-nowrap">Try Premium</p>
+            </a>
+            <a href="/" class="premium-icon material-symbols-outlined text-2xl hidden">workspace_premium</a>
+            <a href="./views/profile.html" class="fa-regular fa-user text-xl rounded-full border-black border-2 w-8 h-8 text-center bg-fuchsia-400 text-white border-none"></a>
+        </div>
+    </nav>
+    <div class="h-12"></div>
+    <div class="menu-panel hidden w-40 h-auto fixed top-14 left-10 p-4" style="background-color: #0E0E10;">
+        <a href="./views/msg.html" class="text-lg hover:bg-fuchsia-800 rounded-lg p-1">Messaging <i class="fa-solid fa-envelope"></i></a>
+    </div>
+    <div class="main flex">
+        
+        <!-- LinkedIn News - Left-side -->
+        <button onclick="showPanel()" class="fa-solid fa-arrow-right-long text-xl font-bold hidden bg-zinc-500 w-10 h-10 text-white" id="show-panel-btn"></button>
+        <div class="news-panel flex flex-col w-60 p-3 bg-zinc-100">
+            <div class="news-top flex items-center justify-between pb-3">
+                <h3 class="text-xl font-bold">LinkedIn News</h3>
+                <button onclick="hidePanel()" class="fa-solid fa-arrow-left-long text-xl font-bold bg-zinc-500 w-10 h-10 text-white"></button>
+            </div>
+            <p class="text-md font-semibold pb-1">Top Stories</p>
+            <div class="news-panel-content w-56 overflow-y-auto">
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">Logistics goes local</h3>
+                    <p>17h ago <span class="text-lg font-semibold">&#183;</span> 5,995 readers</p>
+                </div>
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">Innovative Tech Trends</h3>
+                    <p>2d ago <span class="text-lg font-semibold">&#183;</span> 12,876 readers</p>
+                </div>
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">Healthcare Advances</h3>
+                    <p>5h ago <span class="text-lg font-semibold">&#183;</span> 8,432 readers</p>
+                </div>
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">Global Market Insights</h3>
+                    <p>1d ago <span class="text-lg font-semibold">&#183;</span> 10,321 readers</p>
+                </div>
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">Sustainability Efforts</h3>
+                    <p>3d ago <span class="text-lg font-semibold">&#183;</span> 4,756 readers</p>
+                </div>
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">Startups to Watch</h3>
+                    <p>10h ago <span class="text-lg font-semibold">&#183;</span> 6,215 readers</p>
+                </div>
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">AI in Daily Life</h3>
+                    <p>8h ago <span class="text-lg font-semibold">&#183;</span> 9,874 readers</p>
+                </div>
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">Financial News</h3>
+                    <p>4d ago <span class="text-lg font-semibold">&#183;</span> 7,564 readers</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content-center flex flex-col h-full overflow-y-auto" data-scroll-container>
+            <!-- Hero Section -->
+
+            <div id="controls-carousel" class="relative w-full h-96 p-4 e-full" data-carousel="slide">
+                <!-- Carousel wrapper -->
+                <div class="relative h-96 overflow-hidden">
+                    <!-- Item 1 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="./docs/images/carousel-1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                        <img src="./docs/images/carousel-5.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="./docs/images/carousel-3.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="./docs/images/carousel-4.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="./docs/images/carousel-2.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                </div>
+                <!-- Slider controls -->
+                <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
+            </div>
+            <!-- Feed -->
+            <div class="feed-content mt-20 w-full h-auto flex flex-wrap justify-evenly gap-6">
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('./docs/images/post-img-1.png');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="./docs/images/pic-1.png" alt="">
+                            <div class="text">Sending a bark of joy on hashtag#NationalRescueDogDay to our wonderful rescue hashtag#Dooglers! 🐶 How are you and your furry pals making memories today? Share your paw-sitive moments with us below! ⬇️ hashtag#LifeAtGoogle</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('./docs/images/post-img-2.png');" style="background-image: url('./docs/images/post-img-2.png');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Celebrating hashtag#WorldPhotographyDay by capturing the beauty around us. 📸 Share your best shots! hashtag#Photography</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://thumbs.dreamstime.com/b/smiling-woman-standing-park-summer-afternoon-portrait-young-woman-curly-hair-standing-outside-park-181780189.jpg');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Enjoying a sunny day at the park! ☀️ hashtag#SummerVibes hashtag#OutdoorFun</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://stripo.email/photos/shares/Blog/new-product-launch-announcement-emails.png');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Excited to announce our new product launch! 🚀 hashtag#Innovation hashtag#TechNews</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://pbs.twimg.com/media/ELm7yfBUwAAcoEY?format=jpg&name=4096x4096');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Throwback to our amazing team building event last month! hashtag#Teamwork hashtag#Memories</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://www.daysoftheyear.com/cdn-cgi/image/dpr=1%2Cf=auto%2Cfit=cover%2Cheight=250%2Cq=40%2Csharpen=1%2Cwidth=400/wp-content/uploads/pizza-party-day1-scaled.jpg');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Happy hashtag#NationalPizzaDay! 🍕 What's your favorite topping? hashtag#FoodLovers</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://cdn.mos.cms.futurecdn.net/5NxPEzZsmc26h8isd6iRVF-415-80.jpg');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Kicking off the weekend with a hike! hashtag#Nature hashtag#Adventure</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxjk6Q1IitQzjHfsUa-NZycCEeW8rgxKiYrxWsf52JMg&s');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img  src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Learning new skills at today's workshop. hashtag#ProfessionalDevelopment hashtag#Skills</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://stylecaster.com/wp-content/uploads/2020/12/holiday-theme-parties.jpg?w=600&h=337&crop=1');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Our office holiday party was a blast! hashtag#OfficeLife hashtag#PartyTime</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://media.licdn.com/dms/image/D5612AQGu7IZofWgAMA/article-inline_image-shrink_1500_2232/0/1694587118004?e=1721260800&v=beta&t=uTOX7tRtRCbwgHvjrE4tH-7KsWRnyLTZS9rHifazLpY');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Making strides towards a greener future. hashtag#Sustainability hashtag#EcoFriendly</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR5Y8J21R6DegqY561X_wmo08vA-FxFg67fQNduu0ZEA&s');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Feeling grateful for our amazing community. hashtag#Thankful hashtag#Community</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://doctors-hospital.net/util/images/blog/2019/2019-blog-oct-is-drinking-coffee-good-for-you-950x475.jpg');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Who else loves coffee as much as we do? ☕ hashtag#CoffeeLovers</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://www.causeyoucareco.com/wp-content/uploads/2016/11/SupportSmallBusinessBlogHeaderCYC.jpg');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Supporting small businesses this holiday season. hashtag#ShopLocal hashtag#SupportSmallBusiness</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://qph.cf2.quoracdn.net/main-qimg-57d6802d67afa8370912980c7e9f677e-lq');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Just finished an amazing book. 📚 What's on your reading list? hashtag#BookLovers</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://www.aeologic.com/blog/wp-content/uploads/2023/06/tips-for-work-life-balance-1-scaled.jpg');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Check out our latest blog post for tips on work-life balance. hashtag#Wellness hashtag#Balance</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://www.lesamisgroup.com.sg/wp-content/uploads/thank-you-healthcare-workers.jpg');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Thank you to all the healthcare workers out there. hashtag#Gratitude hashtag#HealthcareHeroes</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://www.thefitnesswrangler.com/wp-content/uploads/2021/12/Gym-gear-for-beginners.png');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Got some new gear for the gym! 💪 hashtag#FitnessGoals hashtag#HealthyLiving</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://media.istockphoto.com/id/1713593165/photo/charming-dog-cute-little-puppy-and-attractive-man.jpg?b=1&s=170667a&w=0&k=20&c=OaUTiqtHfvWavyMgccO0ZihErNFbpStlusqo0jWE7lo=');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Enjoying a peaceful evening by the lake. hashtag#Relaxation hashtag#PeacefulMoments</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbVEU7zAqACFg8U0Gw7sUipNZf5YHx6bTPWC9HDzW6U736iwslToMToYYeBmvSsWPclBY&usqp=CAU');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Baking some delicious treats today! 🍪 hashtag#Baking hashtag#SweetTooth</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://www.techopedia.com/wp-content/uploads/2024/02/1706884145604_processed.jpg');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Excited to attend the upcoming tech conference! hashtag#TechEvents hashtag#Networking</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://donnahartley.com/wp-content/uploads/2017/10/Appreciate.jpg');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <img class="card-pic rounded-full w-10 h-10" src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png" alt="">
+                            <div class="text">Appreciating the little things in life. hashtag#Gratitude hashtag#Mindfulness</div>
+                        </div>
+                        <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <h1 class="block w-full ms-10 text-3xl font-bold">Companies</h1>
+                <a href="./views/google.html" class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ75Q9EvClA_AXpsxkvrXrLRQS6iLAI-Y_MV9FKjZDSEw&s');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <div class="text text-xl font-semibold m-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-20 h-10 rounded-full">Google</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="./views/amazon.html" class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://etimg.etb2bimg.com/photo/90722048.cms');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <div class="text text-xl font-semibold m-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-24 h-10 rounded-full">Amazon</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="./views/microsoft.html" class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                    <div class="card-visual w-full h-4/6" style="background-image: url('https://bsmedia.business-standard.com/_media/bs/img/article/2023-06/06/full/1686046036-9475.jpeg?im=FeatureCrop,size=(826,465)');"></div>
+                    <div class="card-content w-full h-2/6 flex flex-col p-3">
+                        <div class="content-text flex">
+                            <div class="text text-xl font-semibold m-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-24 h-10 rounded-full">Microsoft</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+
+            <footer class=" rounded-lg shadow m-4 border-t">
+                <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                    <div class="sm:flex sm:items-center sm:justify-between">
+                        <a href="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                            <img src="https://static.vecteezy.com/system/resources/previews/018/930/587/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png" class="h-8" alt="LinkedIn Logo" />
+                            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">LinkedIn</span>
+                        </a>
+                        <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                            <li>
+                                <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:underline">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                    <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">LinkedIn</a>. All Rights Reserved.</span>
+                </div>
+            </footer>
+
+
+        </div>
+    </div>
+    <div class="float-post-viewer fixed flex top-0 justify-center items-center hidden bg-gray-600 rounded-lg p-8 z-50" style="width: 90vw; height: auto; max-height: 80vh; top: 5vw; left: 5vw;">
+        <div class="img-tag-container flex flex-col justify-evenly items-center">
+            <div class="post-view bg-black rounded-lg flex-1 p-8">
+            </div>
+            <div class="tags flex justify-evenly items-center mt-8 w-full h-8 text-xl">
+                <i class="fa-regular fa-thumbs-up"></i>
+                <i class="fa-regular fa-comment"></i>
+                <i class="fa-solid fa-repeat"></i>
+                <i class="fa-regular fa-paper-plane"></i>
+            </div>
+        </div>
+        <div class="text-view overflow-y-auto bg-zinc-900 flex-1 p-8 rounded-lg text-white text-xl m-8" style="width: 90vw; height: auto; max-height: 75vh; ">
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="./public/JS/script.js"></script>
+</body>
+</html>

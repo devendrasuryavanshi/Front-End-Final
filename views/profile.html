@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Font and Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="stylesheet" href="../public/CSS/navbar.css">
+    <link rel="stylesheet" href="../public/CSS/styles.css">
+    <link rel="stylesheet" href="../public/CSS/profile.css">
+</head>
+<body class="transition-colors duration-300 overflow-hidden">
+    <nav class="flex items-center justify-between gap-8 h-12 w-full min-w-full text-md font-semibold fixed">
+        <div class="nav-left flex items-center justify-evenly pl-3 gap-6 ">
+            <a href="/" class="fa-brands fa-linkedin text-3xl text-purple-600"></a>
+            <a href="./networks.html" class="myNetwork text-white text-nowrap">My Network</a>
+            <a href="./networks.html" class="fa-regular text-white  fa-heart text-xl hidden"></a>
+            <a onclick="showMenuPanel()" class="fa-solid fa-ellipsis-vertical cursor-pointer text-white  text-2xl"></a>
+        </div>
+        <div class="nav-center flex items-center justify-between w-96">
+            <form class="flex items-center min-w-sm w-full mx-auto">   
+                <label for="simple-search" class="sr-only">Search</label>
+                <div class="relative w-full">
+                    <input type="text" id="simple-search" class=" border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-fuchsia-500 block w-full p-2.5 bg-transparent" placeholder="Search" required />
+                </div>
+                <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-gray-700 rounded-lg border border-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-fuchsia-300 ">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                    <span class="sr-only">Search</span>
+                </button>
+            </form>
+
+        </div>
+        <div class="nav-right flex items-center justify-evenly pr-3 gap-6">
+            <a href="./jobs.html" class="material-symbols-outlined text-white text-2xl">work</a>
+            <a href="./notification.html" class="fa-regular fa-bell text-white text-2xl"></a>
+            <a href="/" class="premium flex text-white items-center justify-evenly gap-2 bg-gray-900 rounded-lg px-1">
+                <span class="material-symbols-outlined text-2xl">workspace_premium</span>
+                <p class="text-nowrap">Try Premium</p>
+            </a>
+            <a href="/" class="premium-icon material-symbols-outlined text-2xl hidden">workspace_premium</a>
+            <a href="./profile.html" class="fa-regular fa-user text-xl rounded-full border-black border-2 w-8 h-8 text-center bg-fuchsia-400 text-white border-none"></a>
+        </div>
+    </nav>
+    <div class="h-12"></div>
+    <div class="menu-panel hidden w-40 h-auto fixed top-14 left-10 p-4" style="background-color: #0E0E10;">
+        <a href="./msg.html" class="text-lg hover:bg-fuchsia-800 rounded-lg p-1">Messaging <i class="fa-solid fa-envelope"></i></a>
+    </div>
+    <div class="main flex">
+        
+        <!-- LinkedIn News - Left-side -->
+        <button onclick="showPanel()" class="fa-solid fa-arrow-right-long text-xl font-bold hidden bg-zinc-500 w-10 h-10 text-white" id="show-panel-btn"></button>
+        <div class="news-panel flex flex-col w-60 p-3 bg-zinc-100">
+            <div class="news-top flex items-center justify-between pb-3">
+                <h3 class="text-xl font-bold">LinkedIn News</h3>
+                <button onclick="hidePanel()" class="fa-solid fa-arrow-left-long text-xl font-bold bg-zinc-500 w-10 h-10 text-white"></button>
+            </div>
+            <p class="text-md font-semibold pb-1">Top Stories</p>
+            <div class="news-panel-content w-56 overflow-y-auto">
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">Logistics goes local</h3>
+                    <p>17h ago <span class="text-lg font-semibold">&#183;</span> 5,995 readers</p>
+                </div>
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">Innovative Tech Trends</h3>
+                    <p>2d ago <span class="text-lg font-semibold">&#183;</span> 12,876 readers</p>
+                </div>
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">Healthcare Advances</h3>
+                    <p>5h ago <span class="text-lg font-semibold">&#183;</span> 8,432 readers</p>
+                </div>
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">Global Market Insights</h3>
+                    <p>1d ago <span class="text-lg font-semibold">&#183;</span> 10,321 readers</p>
+                </div>
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">Sustainability Efforts</h3>
+                    <p>3d ago <span class="text-lg font-semibold">&#183;</span> 4,756 readers</p>
+                </div>
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">Startups to Watch</h3>
+                    <p>10h ago <span class="text-lg font-semibold">&#183;</span> 6,215 readers</p>
+                </div>
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">AI in Daily Life</h3>
+                    <p>8h ago <span class="text-lg font-semibold">&#183;</span> 9,874 readers</p>
+                </div>
+                <div class="pb-3">
+                    <h3 class="font-semibold text-lg">Financial News</h3>
+                    <p>4d ago <span class="text-lg font-semibold">&#183;</span> 7,564 readers</p>
+                </div>
+            </div>
+        </div>
+        <div class="main-content-center flex flex-col h-full overflow-y-auto pb-20" data-scroll-container>
+            <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+                <ul class="flex flex-wrap -mb-px tab-bar">
+                    <li class="me-2">
+                        <a href="#profile" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Profile</a>
+                    </li>
+                    <li class="me-2">
+                        <a href="#dashboard" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Dashboard</a>
+                    </li>
+                    <li class="me-2">
+                        <a href="#posts" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Posts</a>
+                    </li>
+                </ul>
+            </div>
+            <a id="profile" class="text-xl font-semibold mt-4 ms-8 bg-blue-500 w-20 rounded-md px-2 text-white">Profile</a>
+            <button type="button" class="text-black bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-2 text-center me-2 mb-2 bg-gray-300 dark:hover:bg-gray-400 dark:focus:ring-gray-500 w-10 relative left-8 top-4">Edit</button>
+            <a class="profile-tab m-8 border-2 border-zinc-600 flex justify-evenly">
+                <img class="profile-img-pic m-4 rounded-full border-fuchsia-400" src="https://media.licdn.com/dms/image/D4D03AQExmgIFMe1zuQ/profile-displayphoto-shrink_400_400/0/1712164935410?e=1721865600&v=beta&t=FReRbwselc4QyPqtUcjbY1t71JYZPoV3IaxZWgyef2Y" alt="">
+                <img class="banner h-full w-auto"  src="https://media.licdn.com/dms/image/D4D16AQH7lf1qDetZDg/profile-displaybackgroundimage-shrink_350_1400/0/1712858480669?e=1721865600&v=beta&t=RO_sHsD6B22o5cHKPsipVEBRoemWcHqfRu--B96XrRo" alt="">
+            </a>
+            <div class="profile-info flex flex-col justify-center items-start h-auto border-2 border-zinc-600 m-8 p-4 gap-3">
+                <h1 class="user-name text-3xl font-bold text-white text-center">Devendra Suryavanshi <span class="text-gray-600 text-sm font-medium">(He/Him)</span></h1>
+                <p >DSA & Java | Full Stack Web Developer | MERN Enthusiast | Git & GitHub | MongoDB | Express.js | HTML5/CSS/JS | React | Eager to Learn and Grow</p>
+                <p class="text-slate-500">Shajapur, Madhya Pradesh, India  <a class="text-purple-500" href="https://www.linkedin.com/in/devendrasuryavanshi/overlay/contact-info/">Contact info</a></p>
+                <a href="/" class="text-purple-500">101 Connections</a>
+            </div>
+
+            <a  id="dashboard" class="text-xl font-bold mt-4 ms-8 bg-blue-500 w-32 rounded-md px-2 text-white">Dashboard</a>
+            <a class="profile-dashboard shadow-md rounded-lg p-6 m-8 border-2 border-zinc-600 flex flex-col justify-center items-center">
+                <h2 class="text-2xl font-bold mb-4">User Activity Chart</h2>
+                <canvas id="activityChart"></canvas>
+            </a>
+            <a id="posts" class="text-xl font-bold mt-4 ms-8 bg-blue-500 w-16 rounded-md px-2 text-white">Posts</a>
+            <div class="user-posts">
+                <div class="feed-content mt-20 w-full h-auto flex flex-wrap justify-evenly gap-6">
+                    <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                        <div class="card-visual w-full h-4/6" style="background-image: url('https://media.licdn.com/dms/image/D4D22AQGshzs5oEO4dQ/feedshare-shrink_800/0/1715274115102?e=1719446400&v=beta&t=dnWpJOlrm7SdXknC9MLR_WP2RREXOg3W4Khn72ot2Uc');"></div>
+                        <div class="card-content w-full h-2/6 flex flex-col p-3">
+                            <div class="content-text flex">
+                                <img class="card-pic rounded-full w-10 h-10" src="https://media.licdn.com/dms/image/D4D03AQExmgIFMe1zuQ/profile-displayphoto-shrink_100_100/0/1712164935410?e=1721865600&v=beta&t=Sp_H7U-tQqFHAC1JlItCpM5vVM2UrTM2_eagv6LpHtM" alt="">
+                                <div class="text">𝗟𝗲𝘃𝗲𝗹 𝘂𝗽 𝘆𝗼𝘂𝗿 𝗰𝗼𝗱𝗶𝗻𝗴 𝘄𝗶𝘁𝗵 𝗖𝗼𝗱𝘆 𝗳𝗼𝗿 𝗩𝗦 𝗖𝗼𝗱𝗲! 🚀
+
+                                    Want an AI assistant that truly understands your codebase? Look no further than 𝗖𝗼𝗱𝘆 𝗯𝘆 𝗦𝗼𝘂𝗿𝗰𝗲𝗴𝗿𝗮𝗽𝗵!🤖
+                                    
+                                    This extension is a game-changer for VS Code users. 𝗖𝗼𝗱𝘆 provides:
+                                    
+                                    𝗜𝗻𝘁𝗲𝗹𝗹𝗶𝗴𝗲𝗻𝘁 𝗰𝗼𝗱𝗲 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀: Get context-aware autocompletions that fit seamlessly with your project's style and conventions. 
+                                    
+                                    𝗔𝗱𝘃𝗮𝗻𝗰𝗲𝗱 𝗰𝗼𝗱𝗲 𝗮𝗻𝗮𝗹𝘆𝘀𝗶𝘀: Uncover potential issues and areas for improvement with Cody's deep understanding of your code.
+                                    
+                                    𝗔𝗜-𝗽𝗼𝘄𝗲𝗿𝗲𝗱 𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝗰𝗲: Ask Cody questions about your codebase, and get insightful answers that help you navigate complex projects.
+                                    
+                                    I've been using Cody myself, and it's been a real productivity booster. It's like having a coding buddy who's always on hand to offer suggestions and answer questions. 
+                                    
+                                    𝗛𝗲𝗿𝗲'𝘀 𝘄𝗵𝗮𝘁 𝗜 𝗳𝗶𝗻𝗱 𝗺𝗼𝘀𝘁 𝗶𝗻𝘁𝗲𝗿𝗲𝘀𝘁𝗶𝗻𝗴:
+                                    
+                                    • Cody leverages Sourcegraph's code graph technology, giving it a unique understanding of your entire codebase. This means more accurate suggestions and a better grasp of your project's context.</div>
+                            </div>
+                            <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                                <i class="fa-regular fa-thumbs-up"></i>
+                                <i class="fa-regular fa-comment"></i>
+                                <i class="fa-solid fa-repeat"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                        <div class="card-visual w-full h-4/6" style="background-image: url('https://media.licdn.com/dms/image/D4D22AQHdquUdW45Pww/feedshare-shrink_800/0/1715089713307?e=1719446400&v=beta&t=CeYJF7yUVOhzuD-zKpKgllFciIJN4vlryRi045Brutg');" style="background-image: url('./docs/images/post-img-2.png');"></div>
+                        <div class="card-content w-full h-2/6 flex flex-col p-3">
+                            <div class="content-text flex">
+                                <img class="card-pic rounded-full w-10 h-10" src="https://media.licdn.com/dms/image/D4D03AQExmgIFMe1zuQ/profile-displayphoto-shrink_100_100/0/1712164935410?e=1721865600&v=beta&t=Sp_H7U-tQqFHAC1JlItCpM5vVM2UrTM2_eagv6LpHtM" alt="">
+                                <div class="text">🎉 Exciting News! 🏆 I’m thrilled to announce that I’ve been awarded the LeetCode “50 Days Badge 2024”! 🥳 This badge is a testament to being in the top 6.9% of LeetCode users who dedicated 50+ days to solving problems in 2024.
+                                </div>
+                            </div>
+                            <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                                <i class="fa-regular fa-thumbs-up"></i>
+                                <i class="fa-regular fa-comment"></i>
+                                <i class="fa-solid fa-repeat"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                        <div class="card-visual w-full h-4/6" style="background-image: url('https://media.licdn.com/dms/image/D4D22AQHisCrqsOirVQ/feedshare-shrink_800/0/1714660260598?e=1719446400&v=beta&t=pG_XEKnehPjrm6XORk-DHfTkLaM-O2SvXUkRD8VEKg0');"></div>
+                        <div class="card-content w-full h-2/6 flex flex-col p-3">
+                            <div class="content-text flex">
+                                <img class="card-pic rounded-full w-10 h-10" src="https://media.licdn.com/dms/image/D4D03AQExmgIFMe1zuQ/profile-displayphoto-shrink_100_100/0/1712164935410?e=1721865600&v=beta&t=Sp_H7U-tQqFHAC1JlItCpM5vVM2UrTM2_eagv6LpHtM" alt="">
+                                <div class="text">Embarking on a Developer’s Odyssey: The First 100 LeetCode Problems Solved! 🌟</div>
+                            </div>
+                            <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                                <i class="fa-regular fa-thumbs-up"></i>
+                                <i class="fa-regular fa-comment"></i>
+                                <i class="fa-solid fa-repeat"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                        <div class="card-visual w-full h-4/6" style="background-image: url('https://media.licdn.com/dms/image/D4D22AQFnlgXK4SrYGg/feedshare-shrink_800/0/1714147902642?e=1719446400&v=beta&t=eMbNIEBZ4of4qa59C_Lo0twyVkyvlLcZIYSGaMe6wVY');"></div>
+                        <div class="card-content w-full h-2/6 flex flex-col p-3">
+                            <div class="content-text flex">
+                                <img class="card-pic rounded-full w-10 h-10" src="https://media.licdn.com/dms/image/D4D03AQExmgIFMe1zuQ/profile-displayphoto-shrink_100_100/0/1712164935410?e=1721865600&v=beta&t=Sp_H7U-tQqFHAC1JlItCpM5vVM2UrTM2_eagv6LpHtM" alt="">
+                                <div class="text">Level Up! 🚀 Just completed the Alpha Plus 2.0 DSA with Java course at Apna College!
+
+                                    This rigorous program went beyond just covering data structures and algorithms (DSA) – it was a journey of strengthening my problem-solving abilities.
+                                    
+                                    I'm particularly grateful to the course instructor, Shradha Khapra, for her clear and engaging teaching style. Huge shoutout to the entire Alpha Plus 2.0 instructor team! Their dedication to clear explanations and live sessions that tackled our doubts head-on were instrumental in making complex concepts click. The well-structured course kept me motivated throughout.
+                                    
+                                    This achievement signifies a significant advancement towards my goals in software development. I'm thrilled to delve deeper into coding challenges and apply my enhanced DSA skills to solve real-world problems.
+                                    
+                                    hashtag#dsa hashtag#java hashtag#apnacollege hashtag#softwaredeveloper hashtag#algorithms hashtag#datastructures hashtag#coding hashtag#levelup</div>
+                            </div>
+                            <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                                <i class="fa-regular fa-thumbs-up"></i>
+                                <i class="fa-regular fa-comment"></i>
+                                <i class="fa-solid fa-repeat"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)">
+                        <iframe class="card-visual w-full h-4/6" src="https://www.youtube.com/embed/_fuimO6ErKI" title="Google – Welcome to the Gemini era" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="card-content w-full h-2/6 flex flex-col p-3">
+                            <div class="content-text flex">
+                                <img class="card-pic rounded-full w-10 h-10" src="https://media.licdn.com/dms/image/D4D03AQExmgIFMe1zuQ/profile-displayphoto-shrink_100_100/0/1712164935410?e=1721865600&v=beta&t=Sp_H7U-tQqFHAC1JlItCpM5vVM2UrTM2_eagv6LpHtM" alt="">
+                                <div class="text">Throwback to our amazing team building event last month! hashtag#Teamwork hashtag#Memories</div>
+                            </div>
+                            <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                                <i class="fa-regular fa-thumbs-up"></i>
+                                <i class="fa-regular fa-comment"></i>
+                                <i class="fa-solid fa-repeat"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card w-80 h-80 gap-4 flex flex-col" onclick="fullScreen(this)" onclick="fullScreen(this)">
+                        <div class="card-visual w-full h-4/6" style="background-image: url('https://media.licdn.com/dms/image/D4D22AQFoM99Nx1lkHQ/feedshare-shrink_800/0/1712912943776?e=1719446400&v=beta&t=V31ltQn0n0zkvMywDa2kSVCZykxp10NfRIqKno16zD0');"></div>
+                        <div class="card-content w-full h-2/6 flex flex-col p-3">
+                            <div class="content-text flex">
+                                <img class="card-pic rounded-full w-10 h-10" src="https://media.licdn.com/dms/image/D4D03AQExmgIFMe1zuQ/profile-displayphoto-shrink_100_100/0/1712164935410?e=1721865600&v=beta&t=Sp_H7U-tQqFHAC1JlItCpM5vVM2UrTM2_eagv6LpHtM" alt="">
+                                <div class="text">Level up your development workflow with Google's Project IDX! 🚀
+
+                                    Recently, I gained access to Google's exciting project IDX, and let me tell you, it's a game-changer for full-stack developers! 🔥
+                                    
+                                    Project IDX is an entirely web-based workspace that empowers you to build multiplatform apps from scratch or leverage existing projects with popular frameworks like React, Next.js, Angular, and Vue.js. Check it out here: IDX Website - https://idx.dev/ No more juggling multiple IDEs – code from anywhere, anytime! 💻
+                                    
+                                    But what truly excites me is the magic of IDX AI. Built on Google's powerful PaLM 2 language model, IDX offers intelligent features like:
+                                    
+                                    🤖 AI-powered code completion: Say goodbye to repetitive coding! IDX suggests code as you type, accelerating your development process.
+                                    
+                                    💡 Smart code generation: Stuck on a specific function? Describe what you need, and IDX AI can help generate the code for you!
+                                    
+                                    🔍 Code explanation: Unsure what a piece of code does? IDX AI can break it down for you in clear language.
+                                    
+                                    These features, combined with the cloud-based workspace and pre-built project templates, make IDX incredibly user-friendly for developers of all experience levels. 🌟
+                                    
+                                    Whether you're a seasoned pro or just starting your coding journey, Project IDX is worth checking out! I'm eager to explore its potential and collaborate with other IDX enthusiasts. 💼 hashtag#GoogleIDX hashtag#FullStackDevelopment hashtag#MultiplatformApps hashtag#AIpoweredCoding
+                                    
+                                    Learn more ➡ https://lnkd.in/dz3KQAhA</div>
+                            </div>
+                            <div class="tags flex justify-evenly items-center mt-4 w-full h-8">
+                                <i class="fa-regular fa-thumbs-up"></i>
+                                <i class="fa-regular fa-comment"></i>
+                                <i class="fa-solid fa-repeat"></i>
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class=" rounded-lg shadow m-4 border-t">
+                <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                    <div class="sm:flex sm:items-center sm:justify-between">
+                        <a href="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                            <img src="https://static.vecteezy.com/system/resources/previews/018/930/587/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png" class="h-8" alt="LinkedIn Logo" />
+                            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">LinkedIn</span>
+                        </a>
+                        <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                            <li>
+                                <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:underline">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                    <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">LinkedIn</a>. All Rights Reserved.</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div class="float-post-viewer fixed flex top-0 justify-center items-center hidden rounded-lg p-8" style="width: 90vw; height: auto; max-height: 80vh; top: 5vw; left: 5vw;">
+        <div class="img-tag-container flex flex-col justify-evenly items-center">
+            <div class="post-view bg-black flex-1 p-8">
+            </div>
+            <div class="tags flex justify-evenly items-center mt-8 me-0 w-full h-8 text-xl">
+                <i class="fa-regular fa-thumbs-up"></i>
+                <i class="fa-regular fa-comment"></i>
+                <i class="fa-solid fa-repeat"></i>
+                <i class="fa-regular fa-paper-plane"></i>
+            </div>
+        </div>
+        <div class="text-view overflow-y-auto bg-gray-200 flex-1 p-8 rounded-lg text-gray-900 text-xl m-8" style="width: 90vw; height: auto; max-height: 75vh; ">
+        </div>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="/public/JS/script.js"></script>
+    <script src="/public/JS/profile.js"></script>
+</body>
+</html>

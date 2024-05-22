@@ -1,0 +1,23 @@
+
+
+.new-connection, .connection-user {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .new-connection-user {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .new-connection-user button {
+        margin-right: 0;
+    }
+}
+
+.main-content-company a {
+    color: #9147FF;
+}
+
+.visit-content a {
+    color: #fff;
+}

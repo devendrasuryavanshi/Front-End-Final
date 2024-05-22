@@ -1,0 +1,23 @@
+.profile-tab, .profile-info {
+    height: 15vw;
+    background-color: #1F1F23;
+}
+
+.profile-img-pic {
+    border: .3vw solid;
+}
+
+
+.active-tab {
+    color: #A855E9;
+}
+
+
+.tab-bar a:hover {
+    color: #606060;
+    border-color: #606060;
+}
+
+.profile-dashboard {
+    background-color: #1F1F23;
+}

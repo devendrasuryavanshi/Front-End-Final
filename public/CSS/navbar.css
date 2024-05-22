@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: #f4f4f4;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html , body{
+    height: 100%;
+    width: 100%;
+    background-color: #0E0E10;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #636364;
+    border-radius: 1rem;
+}
+
+@media (max-width: 768px) {
+    .news-panel {
+    }
+    .fa-heart {
+        display: inline-block !important;
+    }
+    .myNetwork {
+        display: none !important;
+    }
+    .premium-icon {
+        display: inline-block !important;
+    }
+    .premium {
+        display: none !important;
+    }
+}
+
+@media (max-width: 500px) {
+    .fa-envelope {
+        display: none !important;
+    }
+    .premium-icon {
+        display: none !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .nav-center {
+        display: none;
+    }
+}
